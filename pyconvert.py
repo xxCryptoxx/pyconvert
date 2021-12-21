@@ -42,11 +42,15 @@ def main(counter):
             print(f'KeyError: {ke} => {entry}')
             # extract the audio from the mp4_file variable
             # then output it to the mp3_file variable
-            ffmpeg_extract_audio(mp4_file, mp3_file)
-            print(f'CONVERTED: "{mp4_file}" to .mp3')
-            # remove the mp4_file from the directory
-            os.remove(mp4_file)
-            print(f'REMOVED: {mp4_file}')
-            continue                
+            try:
+                ffmpeg_extract_audio(mp4_file, mp3_file)
+                print(f'CONVERTED: "{mp4_file}" to .mp3')
+                # remove the mp4_file from the directory
+                os.remove(mp4_file)
+                print(f'REMOVED: {mp4_file}')
+                continue                
+            except PermissionError as pe:
+                print(pe)
+                continue
 
 main(counter)
