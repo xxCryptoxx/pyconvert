@@ -52,4 +52,4 @@ def main():
                 print(pe)
                 continue
 
-main(counter)
+main()
