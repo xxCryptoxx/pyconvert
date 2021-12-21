@@ -5,8 +5,7 @@ from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_audio
 # so basically what this script will do is
 # convert mp4 files in the current directory
 # into mp3 files
-counter = 0
-def main(counter):
+def main():
     # first we will get the directory
     print(f'INSIDE DIRECTORY: {os.listdir()}\n')
     
